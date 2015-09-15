@@ -1,0 +1,12 @@
+add node0 : JavascriptNode
+add sync : WSGroup
+add node0.ticker: Ticker
+add node0.debug : org.nodered.Debug
+add chan: LocalChannel
+
+attach node0 sync
+
+set node0.logLevel = 'DEBUG'
+
+bind node0.ticker.tick chan
+bind node0.debug.in chan
